@@ -1,0 +1,7 @@
+@mixin respond($break) {
+  @if $break == phone {
+    @media (max-width: 720px) { @content; }
+  } @else if $break == tablet {
+    @media (max-width: 1100px) { @content; }
+  }
+}

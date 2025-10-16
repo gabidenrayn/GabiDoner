@@ -1,0 +1,9 @@
+.reviews {
+  padding: 60px 0;
+  &__inner { max-width: $container; margin: 0 auto; padding: 0 32px; }
+  &__title { font-size: 24px; margin-bottom: 12px; }
+  &__list { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  &__item { background: white; padding: 18px; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+  &__author { display:block; margin-top: 10px; font-weight:700; }
+  @include respond(phone) { &__list { grid-template-columns: 1fr; } }
+}

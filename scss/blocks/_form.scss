@@ -1,0 +1,44 @@
+.form {
+  padding: 64px 0;
+  &__inner { max-width: $container; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 480px; gap: 28px; align-items:start; }
+
+  &__text { /* left column text */ }
+  &__title { font-size: 24px; margin-bottom: 8px; }
+  &__desc { margin-bottom: 14px; color: #444; }
+
+  &__body {
+    background: $glass;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  &__row--full { grid-column: 1 / -1; }
+  &__row--actions { display:flex; gap:10px; justify-content:flex-end; }
+
+  .form__label { font-weight:600; font-size:0.95rem; color: #222; }
+  .form__input, .form__textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    font-size: 1rem;
+  }
+  .form__textarea { min-height: 140px; resize: vertical; }
+
+  @include respond(tablet) {
+    &__inner { grid-template-columns: 1fr 1fr; }
+  }
+  @include respond(phone) {
+    &__inner { grid-template-columns: 1fr; }
+    .form__row--actions { justify-content: center; }
+  }
+}

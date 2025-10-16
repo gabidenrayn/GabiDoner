@@ -1,0 +1,32 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+
+  &__inner, &__wrap {
+    max-width: $container;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-weight: 800;
+    font-size: 20px;
+    text-decoration: none;
+    color: $text;
+
+    &--accent { color: $accent; margin-left: 6px; }
+  }
+
+  &__nav { display: flex; gap: 14px; align-items: center; }
+
+  &__link { color: $text; text-decoration: none; font-weight: 600; padding: 8px 10px; border-radius: 8px; }
+
+  &__cta { background: linear-gradient(90deg, $accent, $accent-2); color: white; padding: 8px 14px; border-radius: 12px; }
+}
