@@ -1,0 +1,40 @@
+/* Минимальный восстановительный CSS — вставьте как css/styles.css */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; padding: 0; font-family: Arial, sans-serif; color: #111; background: #fff; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+header.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 0;
+}
+.hero__content { flex: 1; }
+.hero__title { font-size: 36px; margin: 0 0 12px; }
+.hero__lead { font-size: 18px; margin: 0 0 20px; }
+.hero__image img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+/* Контакты */
+.contacts__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+
+.btn { display: inline-block; padding: 12px 20px; border-radius: 6px; text-decoration: none; cursor: pointer; }
+.btn--primary { background: #d63447; color: #fff; border: none; }
+
+/* Адаптив */
+@media (max-width: 768px) {
+  header.hero { flex-direction: column; padding: 28px 0; }
+  .contacts__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero__title { font-size: 22px; }
+  .container { padding: 0 12px; }
+}
+@media (max-width: 320px) {
+  .hero__title { font-size: 20px; }
+  .btn { padding: 10px 12px; }
+}
