@@ -1,0 +1,50 @@
+// Базовые настройки и функция rem
+$root-font-size: 16px;
+@function rem($px) {
+  @return ($px / $root-font-size) * 1rem;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { font-size: $root-font-size; -webkit-font-smoothing: antialiased; }
+body { margin: 0; font-family: 'Inter', system-ui, Arial; color: #111; background: #fff; }
+
+/* Контейнер */
+.container {
+  max-width: rem(1200);
+  margin: 0 auto;
+  padding: 0 rem(16);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: rem(24);
+  padding: rem(40) 0;
+  &__content { flex: 1; }
+  &__title { font-size: rem(36); margin: 0 0 rem(12); }
+  &__image img { max-width: 100%; height: auto; display: block; border-radius: rem(8); }
+}
+
+/* Контакты */
+.contacts__grid { display: grid; grid-template-columns: 1fr 1fr; gap: rem(24); }
+
+/* Кнопки */
+.btn { padding: rem(12) rem(20); border-radius: rem(6); text-decoration: none; }
+.btn--primary { background: #d63447; color: #fff; }
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; padding: rem(28) 0; }
+  .contacts__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero__title { font-size: rem(22); }
+  .container { padding: 0 rem(12); }
+}
+@media (max-width: 320px) {
+  .hero__title { font-size: rem(20); }
+  .btn { padding: rem(10) rem(12); }
+}
