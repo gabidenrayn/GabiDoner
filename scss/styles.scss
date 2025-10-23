@@ -1,0 +1,131 @@
+// Базовые настройки
+$root-font-size: 16px; // 1rem = 16px (по умолчанию)
+@function rem($px) {
+  @return ($px / $root-font-size) * 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $root-font-size; // можно изменить: 62.5% чтобы 1rem = 10px, но я предпочитаю 16px
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.45;
+  color: #111;
+  margin: 0;
+  background: #fff;
+}
+
+// Контейнер
+.container {
+  max-width: rem(1200);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: rem(16);
+  padding-right: rem(16);
+}
+
+// Hero
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: rem(24);
+  padding: rem(40) 0;
+
+  &__content {
+    flex: 1 1 50%;
+  }
+
+  &__title {
+    font-size: rem(36); // 36px -> 2.25rem
+    margin: 0 0 rem(12);
+  }
+
+  &__lead {
+    font-size: rem(18);
+    margin-bottom: rem(20);
+  }
+
+  &__image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: rem(8);
+  }
+}
+
+// Contacts grid
+.contacts__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(24);
+  align-items: start;
+}
+
+// Кнопка
+.btn {
+  display: inline-block;
+  padding: rem(12) rem(20);
+  border-radius: rem(6);
+  text-decoration: none;
+  cursor: pointer;
+  &--primary {
+    background: #d63447;
+    color: #fff;
+    border: none;
+  }
+}
+
+/* MEDIA QUERIES */
+/* Планшеты (<=768px) */
+@media (max-width: 768px) {
+  .hero {
+    padding: rem(28) 0;
+  }
+  .hero {
+    flex-direction: column;
+    &__content, &__image {
+      width: 100%;
+    }
+    &__title {
+      font-size: rem(28);
+    }
+  }
+  .contacts__grid {
+    grid-template-columns: 1fr; // stack on tablets if needed
+  }
+}
+
+/* Смартфоны (<=480px) — mobile first fine-tuning */
+@media (max-width: 480px) {
+  html { font-size: $root-font-size; } // обычно не меняют, но можно подрегулировать
+  .hero__title {
+    font-size: rem(22);
+  }
+  .hero__lead {
+    font-size: rem(16);
+  }
+  .container {
+    padding-left: rem(12);
+    padding-right: rem(12);
+  }
+  .contacts__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Убедиться, что контент корректен до 320px */
+/* Если хотите, можно добавить дополнительный query для очень узких экранов */
+@media (max-width: 320px) {
+  .hero__title { font-size: rem(20); }
+  .btn { padding: rem(10) rem(12); }
+}
